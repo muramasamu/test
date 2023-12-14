@@ -1,0 +1,26 @@
+<html>
+<script>
+function readJson() {
+  var file = document.querySelector('input[type=file]').files[0];
+  var reader = new FileReader();
+  reader.onload = function() {
+    var data = JSON.parse(reader.result);
+
+    console.log(data);
+    //キー指定
+    console.log(data.name);
+    document.getElementById("output").innerText = data.name;
+    //キー取得
+    var keys = Object.keys(data);
+    console.log(keys);
+
+    // JSONデータを受信した後に実行する処理
+  };
+  reader.readAsText(file);
+}
+
+</script>
+<input type="file">
+<button onclick="readJson()">road</button>
+<p id="output">here</p>
+</html>
